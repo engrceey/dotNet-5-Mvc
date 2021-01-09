@@ -379,3 +379,4 @@
 /Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/ref/BHRUGEN MVC.dll
 /Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/BHRUGEN MVC.pdb
 /Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/BHRUGEN MVC.genruntimeconfig.cache
+/Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/Category/Index.cshtml.g.cs

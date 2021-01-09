@@ -15603,6 +15603,11 @@
   "RootNamespace": "BHRUGEN_MVC",
   "Documents": [
     {
+      "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/Category/Index.cshtml",
+      "TargetPath": "Views\\Category\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
