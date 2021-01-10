@@ -38,10 +38,42 @@ namespace BHRUGEN_MVC.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
+            return View(category);  
+        }
+
+        // Get - Edit
+        public IActionResult Edit(int? Id)
+        {
+            if(Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var category = _context.Category.Find(Id);
+            
+            if(category == null)
+            {
+               return  NotFound();
+            }
 
             return View(category);
-           
-            
+        }
+
+        [HttpPost]
+         [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category category)
+        {
+            if(ModelState.IsValid)
+            {
+                 _context.Category.Update(category);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(category);  
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            return View();
         }
     }
 }
