@@ -71,9 +71,37 @@ namespace BHRUGEN_MVC.Controllers
             return View(category);  
         }
 
-        public IActionResult Delete(int Id)
+        // Get - Edit
+        public IActionResult Delete(int? Id)
         {
-            return View();
+            if(Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            var category = _context.Category.Find(Id);
+            
+            if(category == null)
+            {
+               return  NotFound();
+            }
+
+            return View(category);
         }
+
+        // Delete - Post
+        [HttpPost]
+         [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? Id)
+        {
+            var category = _context.Category.Find(Id);
+            if(category == null)
+            {
+                return NotFound();
+            }
+                 _context.Category.Remove(category);
+                _context.SaveChanges();
+                return RedirectToAction("Index");  
+        }
+
     }
 }
