@@ -15608,6 +15608,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/ApplicationType/Index.cshtml",
+      "TargetPath": "Views\\ApplicationType\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/ApplicationType/Create.cshtml",
+      "TargetPath": "Views\\ApplicationType\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"

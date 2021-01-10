@@ -5,18 +5,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BHRUGEN_MVC.Controllers
 {
-    public class CategoryController : Controller
+    public class ApplicationTypeController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CategoryController(ApplicationDbContext context)
+        public ApplicationTypeController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<Category> objList = _context.Category;
+            IEnumerable<ApplicationType> objList = _context.ApplicationType;
             
             return View(objList);
         }
@@ -30,18 +30,11 @@ namespace BHRUGEN_MVC.Controllers
          // POST - CREATE
          [HttpPost]
          [ValidateAntiForgeryToken]
-        public IActionResult Create(Category category)
+        public IActionResult Create(ApplicationType applicationType)
         {
-            if(ModelState.IsValid)
-            {
-                 _context.Category.Add(category);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(category);
-           
-            
+            _context.ApplicationType.Add(applicationType);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
