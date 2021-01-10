@@ -15623,6 +15623,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/ApplicationType/Edit.cshtml",
+      "TargetPath": "Views\\ApplicationType\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
@@ -15650,6 +15655,11 @@
     {
       "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/Category/Edit.cshtml",
       "TargetPath": "Views\\Category\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/ApplicationType/Delete.cshtml",
+      "TargetPath": "Views\\ApplicationType\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
