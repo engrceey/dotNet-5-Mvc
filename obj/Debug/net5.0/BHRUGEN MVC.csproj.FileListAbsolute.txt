@@ -385,3 +385,5 @@
 /Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/ApplicationType/Index.cshtml.g.cs
 /Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/Category/Edit.cshtml.g.cs
 /Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/Category/Delete.cshtml.g.cs
+/Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/ApplicationType/Delete.cshtml.g.cs
+/Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/ApplicationType/Edit.cshtml.g.cs
