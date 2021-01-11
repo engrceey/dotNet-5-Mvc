@@ -10,6 +10,7 @@ namespace BHRUGEN_MVC.ViewModel
         [Required]
         public string LastName { get; set; }
         [Required]
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
         [Required]
         [EmailAddress]
