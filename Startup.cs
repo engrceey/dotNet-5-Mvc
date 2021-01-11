@@ -50,6 +50,8 @@ namespace BHRUGEN_MVC
 
             app.UseRouting();
 
+            
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
