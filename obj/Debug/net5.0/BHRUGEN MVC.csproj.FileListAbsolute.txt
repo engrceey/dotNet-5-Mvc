@@ -390,3 +390,4 @@
 /Users/zurum/Desktop/BHRUGEN MVC/bin/Debug/net5.0/Microsoft.Extensions.Identity.Stores.dll
 /Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/Account/Login.cshtml.g.cs
 /Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/Account/Register.cshtml.g.cs
+/Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/Account/ConfirmEmail.cshtml.g.cs

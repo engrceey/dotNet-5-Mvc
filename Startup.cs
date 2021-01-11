@@ -32,8 +32,20 @@ namespace BHRUGEN_MVC
                                 option.UseSqlite(Configuration.GetConnectionString("Sqlite")));
 
             services.AddIdentity<IdentityUser, IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddEntityFrameworkStores<ApplicationDbContext>().
+            AddDefaultTokenProviders();
 
+            // var emailConfig = Configuration
+            //     .GetSection("EmailConfiguration")
+            //     .Get<EmailConfig>();
+            // services.AddSingleton(emailConfig);
+            // services.AddScoped<IEmailSender, EmailSender>();
+
+            services.AddAuthentication().AddGoogle(options => 
+                        {
+                            options.ClientId = "703240326640-lo7pgdghemb9gfso22eu67fl0t5uphqs.apps.googleusercontent.com";
+                            options.ClientSecret = "VAQIqxm9172eU0YnVvQwF1CI";
+                        });
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -41,11 +53,7 @@ namespace BHRUGEN_MVC
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
-            });
 
-
-            services.Configure<IdentityOptions>(options =>
-            {
                 // Default Password settings.
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
@@ -53,7 +61,11 @@ namespace BHRUGEN_MVC
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 6;
                 options.Password.RequiredUniqueChars = 0;
+
+                // Default SignIn settings.
+                options.SignIn.RequireConfirmedEmail = true;
             });
+
 
         }
 

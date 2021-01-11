@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "X2rvNO+Em6GiR4IR4OEA8tcwF6LDRs4DlFjtMMH1ks0hhMM3MaUHLc7UHTNpZinZUJ2HEIJnIk47PkQ0OD3fcA==",
+  "dgSpecHash": "QLFRTtet7vxIE+WWlq5852P/mkZii5dY6AIKq/2HqRxSEKK9AmmOBf4c6wFpmDD8gR4T8sDfMLO2iI6d1izVSw==",
   "success": true,
   "projectFilePath": "/Users/zurum/Desktop/BHRUGEN MVC/BHRUGEN MVC.csproj",
   "expectedPackageFiles": [
     "/Users/zurum/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
+    "/Users/zurum/.nuget/packages/microsoft.aspnetcore.authentication.google/5.0.1/microsoft.aspnetcore.authentication.google.5.0.1.nupkg.sha512",
     "/Users/zurum/.nuget/packages/microsoft.aspnetcore.cryptography.internal/5.0.1/microsoft.aspnetcore.cryptography.internal.5.0.1.nupkg.sha512",
     "/Users/zurum/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/5.0.1/microsoft.aspnetcore.cryptography.keyderivation.5.0.1.nupkg.sha512",
     "/Users/zurum/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/5.0.1/microsoft.aspnetcore.identity.entityframeworkcore.5.0.1.nupkg.sha512",
