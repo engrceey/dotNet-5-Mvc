@@ -15673,6 +15673,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/Account/Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
