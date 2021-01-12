@@ -30,6 +30,7 @@ namespace BHRUGEN_MVC.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register (RegisterViewModel model)
         {
             if(ModelState.IsValid)
@@ -46,16 +47,24 @@ namespace BHRUGEN_MVC.Controllers
                 {
                     var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-                    var confirmationLink = Url.Action("confirmEmail", "Action",
+                    var confirmationLink = Url.Action("ConfirmEmail", "Account",
                                         new {userId = user.Id, token = token}, Request.Scheme);
 
 
                     _logger.Log(LogLevel.Warning, confirmationLink);
                     
-                    
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    if(_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        return RedirectToAction("ListUsers", "Administration");
+                    }
 
-                    return RedirectToAction("index", "Home");
+                    ViewBag.ErrorTitle = "Registration successful";
+                    ViewBag.ErrorMessage = "Before you can Login, please confirm your email " + 
+                    "by clicking on the confirmation link sent to your email";
+                    return View("Error");
+                    
+                    // await _signInManager.SignInAsync(user, isPersistent: false);
+                    // return RedirectToAction("index", "Home");
                 }
 
                 foreach (var error in result.Errors)
@@ -189,11 +198,11 @@ namespace BHRUGEN_MVC.Controllers
             {
                 user = await _userManager.FindByEmailAsync(email);
 
-                if (user != null && !user.EmailConfirmed)
-                {
-                    ModelState.AddModelError(string.Empty, "Your email is not yet confirmed");
-                    return View("Login", loginViewModel);
-                }
+                // if (user != null && !user.EmailConfirmed)
+                // {
+                //     ModelState.AddModelError(string.Empty, "Your email is not yet confirmed");
+                //     return View("Login", loginViewModel);
+                // }
             }
 
             var signInResult = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider,
@@ -217,6 +226,17 @@ namespace BHRUGEN_MVC.Controllers
                         };
 
                         await _userManager.CreateAsync(user);
+
+                        var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                        var confirmationLink = Url.Action("ConfirmEmail", "Account",
+                                        new {userId = user.Id, token = token}, Request.Scheme);
+
+                        _logger.Log(LogLevel.Warning, confirmationLink);
+
+                         ViewBag.ErrorTitle = "Registration successful";
+                        ViewBag.ErrorMessage = "Before you can Login, please confirm your email " + 
+                        "by clicking on the confirmation link sent to your email";
+                        return View("Error");             
                     }
 
                     await _userManager.AddLoginAsync(user, info);
