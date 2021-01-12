@@ -117,8 +117,20 @@ namespace BHRUGEN_MVC.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+
+            model.ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync())
+                    .ToList();
+
             if(ModelState.IsValid)
             {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+
+                if (user != null && !user.EmailConfirmed &&
+                            (await _userManager.CheckPasswordAsync(user, model.Password)))
+                {
+                    ModelState.AddModelError(string.Empty, "Your email is not yet confirmed");
+                    return View(model);
+                }
                 var result = await _signInManager.PasswordSignInAsync(model.Email,model.Password,model.RememberMe, false);
 
                 if(result.Succeeded)
@@ -170,6 +182,20 @@ namespace BHRUGEN_MVC.Controllers
                 return View("Login", loginViewModel);
             }
 
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+            IdentityUser user = null;
+
+            if (email != null)
+            {
+                user = await _userManager.FindByEmailAsync(email);
+
+                if (user != null && !user.EmailConfirmed)
+                {
+                    ModelState.AddModelError(string.Empty, "Your email is not yet confirmed");
+                    return View("Login", loginViewModel);
+                }
+            }
+
             var signInResult = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider,
                                     info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
 
@@ -179,12 +205,9 @@ namespace BHRUGEN_MVC.Controllers
             }
             else
             {
-                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-
+                
                 if (email != null)
                 {
-                    var user = await _userManager.FindByEmailAsync(email);
-
                     if (user == null)
                     {
                         user = new IdentityUser

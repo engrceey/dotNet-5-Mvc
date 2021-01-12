@@ -35,16 +35,12 @@ namespace BHRUGEN_MVC
             .AddEntityFrameworkStores<ApplicationDbContext>().
             AddDefaultTokenProviders();
 
-            // var emailConfig = Configuration
-            //     .GetSection("EmailConfiguration")
-            //     .Get<EmailConfig>();
-            // services.AddSingleton(emailConfig);
-            // services.AddScoped<IEmailSender, EmailSender>();
-
+           
             services.AddAuthentication().AddGoogle(options => 
                         {
                             options.ClientId = "703240326640-lo7pgdghemb9gfso22eu67fl0t5uphqs.apps.googleusercontent.com";
                             options.ClientSecret = "VAQIqxm9172eU0YnVvQwF1CI";
+                            // options.CallbackPath = "";
                         });
 
             services.Configure<IdentityOptions>(options =>

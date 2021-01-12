@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>BHRUGEN_MVC</RootNamespace>
+    <UserSecretsId>cb8c6cb7-2077-411a-afe1-4cec1c9ba469</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
