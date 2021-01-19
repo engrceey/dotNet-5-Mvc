@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using BHRUGEN_MVC.Data;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BHRUGEN_MVC
 {
@@ -35,7 +38,25 @@ namespace BHRUGEN_MVC
             .AddEntityFrameworkStores<ApplicationDbContext>().
             AddDefaultTokenProviders();
 
-           
+              services.AddAuthentication(option =>
+            {
+                // option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                // option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                // option.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidIssuer = Configuration["Jwt:Site"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SigningKey"]))
+                };
+            });
+
             services.AddAuthentication().AddGoogle(options => 
                         {
                             options.ClientId = "703240326640-lo7pgdghemb9gfso22eu67fl0t5uphqs.apps.googleusercontent.com";
@@ -59,10 +80,15 @@ namespace BHRUGEN_MVC
                 options.Password.RequiredUniqueChars = 0;
 
                 // Default SignIn settings.
-                options.SignIn.RequireConfirmedEmail = true;
+                // options.SignIn.RequireConfirmedEmail = true;
             });
 
 
+        }
+
+        private void JwtBearerDefaults(AuthenticationOptions obj)
+        {
+            throw new NotImplementedException();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

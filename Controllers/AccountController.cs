@@ -53,18 +53,18 @@ namespace BHRUGEN_MVC.Controllers
 
                     _logger.Log(LogLevel.Warning, confirmationLink);
                     
-                    if(_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                    {
-                        return RedirectToAction("ListUsers", "Administration");
-                    }
+                    // if(_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    // {
+                    //     return RedirectToAction("ListUsers", "Administration");
+                    // }
 
-                    ViewBag.ErrorTitle = "Registration successful";
-                    ViewBag.ErrorMessage = "Before you can Login, please confirm your email " + 
-                    "by clicking on the confirmation link sent to your email";
-                    return View("Error");
+                    // ViewBag.ErrorTitle = "Registration successful";
+                    // ViewBag.ErrorMessage = "Before you can Login, please confirm your email " + 
+                    // "by clicking on the confirmation link sent to your email";
+                    // return View("Error");
                     
-                    // await _signInManager.SignInAsync(user, isPersistent: false);
-                    // return RedirectToAction("index", "Home");
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("index", "Home");
                 }
 
                 foreach (var error in result.Errors)
@@ -73,7 +73,6 @@ namespace BHRUGEN_MVC.Controllers
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
-
             return View(model);
         }
 
