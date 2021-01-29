@@ -399,3 +399,4 @@
 /Users/zurum/Desktop/BHRUGEN MVC/bin/Debug/net5.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/zurum/Desktop/BHRUGEN MVC/bin/Debug/net5.0/Microsoft.IdentityModel.Tokens.dll
 /Users/zurum/Desktop/BHRUGEN MVC/bin/Debug/net5.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/zurum/Desktop/BHRUGEN MVC/obj/Debug/net5.0/Razor/Views/Home/ShowProfile.cshtml.g.cs
