@@ -1,0 +1,44 @@
+@model IEnumerable<Profile>
+@{
+  ViewData["Title"] = "Profile Page";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayPicture)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model)
+       {
+           <tr>
+               <td>
+                   @Html.DisplayFor(modelItem => item.Name)
+               </td>
+               <td>
+                   @Html.DisplayFor(modelItem => item.Email)
+               </td>
+               <td>
+                   @Html.DisplayFor(modelItem => item.Message)
+               </td>
+               <td>
+                   <img src="~/images/@item.DisplayPicture" 
+                   class="rounded" width="100" asp-append-version="true">
+               </td>
+           </tr>
+       } 
+    </tbody>
+</table>
