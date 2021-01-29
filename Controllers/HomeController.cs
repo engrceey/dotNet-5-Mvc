@@ -53,7 +53,8 @@ namespace BHRUGEN_MVC.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                
+                return RedirectToAction("Index");
             }
 
             string stringFileName = UploadFile(model);

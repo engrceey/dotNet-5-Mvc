@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using BHRUGEN_MVC.Validations;
 using Microsoft.AspNetCore.Http;
 
 namespace BHRUGEN_MVC.Models
@@ -14,7 +15,11 @@ namespace BHRUGEN_MVC.Models
         public string Email { get; set; }
         [Required]
         public string Message { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please select a file.")]
+        [DataType(DataType.Upload)]
+        // 1 MB
+        [MaxFileSize(1* 1024 * 1024)]
+        [AllowedExtensions(new string[] { ".jpg", ".png" })]
         public string DisplayPicture { get; set; }
     }
 }
