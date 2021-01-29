@@ -15688,6 +15688,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/Home/ShowProfile.cshtml",
+      "TargetPath": "Views\\Home\\ShowProfile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/zurum/Desktop/BHRUGEN MVC/Views/Home/Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
